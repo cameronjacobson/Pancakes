@@ -47,7 +47,7 @@ class Pancakes
 						$parts['path'] = @$parts['path'] ?: '/';
 						$parts['query'] = @$parts['query'] ? '?'.$parts['query'] : ''; 
 						$parts['fragment'] = @$parts['fragment'] ? '#'.$parts['fragment'] : ''; 
-var_dump($parts);
+
 						$this->sockets[$key] = stream_socket_client(
 							$parts['scheme'].$parts['user'].$parts['pass'].$parts['host'].$parts['port'],
 							$errno,
@@ -55,11 +55,9 @@ var_dump($parts);
 							$this->timeout,
 							$this->socketOptions
 						);
-var_dump($errno);
-var_dump($errstr);
+
 						stream_set_read_buffer($this->sockets[$key], $this->bufferSize);
-$request = "GET ".$parts['path']." HTTP/1.0\r\nHost: ".$parts['host']."\r\nAccept: *"."/*\r\n\r\n";
-echo $request;
+
 						fwrite($this->sockets[$key], "GET ".$parts['path']." HTTP/1.0\r\nHost: ".$parts['host']."\r\nAccept: *"."/*\r\n\r\n");
 						$this->buffered_events[$key] = event_buffer_new(
 							$this->sockets[$key],
