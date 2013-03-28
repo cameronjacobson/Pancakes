@@ -19,5 +19,5 @@ foreach($urls as $url){
 $pancakes->eat();
 
 foreach($urls as $url){
-	file_put_contents(__DIR__.'/results/'.$url, $pancakes->buffer['url'][$url]);
+	file_put_contents(__DIR__.'/results/'.$url.'.html', $pancakes->buffer['url'][$url]);
 }
