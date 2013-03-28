@@ -1,0 +1,8 @@
+{
+	"name":"pancakes/pancakes",
+	"autoload": {
+		"psr-0": {
+			"Pancakes": "src/"
+		}
+	}
+}
